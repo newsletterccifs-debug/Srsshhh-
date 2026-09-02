@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Arcade 🎮 Fun & Games Arena</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="theme-noir-gold">
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="brand-icon">⚜️</span>
+      <span>Shristii's Gala</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="memories.html" class="nav-link">Memories</a></li>
+      <li><a href="arcade.html" class="nav-link active">Arcade</a></li>
+      <li><a href="wishes.html" class="nav-link">Wishbook</a></li>
+      <li><a href="surprise.html" class="nav-link">Secret Vault</a></li>
+    </ul>
+
+    <div class="nav-controls">
+      <button class="control-btn" id="bgm-toggle-btn">🎵 Melody: OFF</button>
+      <button class="control-btn" id="sfx-toggle-btn">🔊 Sound: ON</button>
+      <select id="theme-select" class="theme-picker">
+        <option value="theme-noir-gold">⚜️ Noir & Champagne</option>
+        <option value="theme-velvet-wine">🍷 Velvet & Rose Gold</option>
+        <option value="theme-emerald-luxe">🌲 Emerald & Gold</option>
+        <option value="theme-ivory-champagne">🥂 Alabaster & Gold</option>
+      </select>
+    </div>
+  </nav>
+
+  <div class="arcade-container">
+    <div class="hero-section" style="padding-bottom: 1rem;">
+      <div class="hero-badge">🕹️ 5 Interactive Birthday Mini-Games 🕹️</div>
+      <h1 class="hero-title">The Birthday Arcade</h1>
+      <p class="hero-subtitle">
+        Play games, win birthday coupons, crack fortunes, and test how well you know <span data-bind="name">Shristii 🐘</span>!
+      </p>
+    </div>
+
+    <!-- GAME 1: TRIVIA QUIZ -->
+    <section class="mt-4">
+      <div class="glass-panel" style="padding: 1.5rem; margin-bottom: 2rem;">
+        <h2>🧠 Game 1: How Well Do You Know <span data-bind="name">Shristii 🐘</span>?</h2>
+        <p class="hero-subtitle" style="margin-bottom: 1.5rem;">Answer the fun trivia questions to claim your official friendship diploma!</p>
+        <div id="trivia-container">
+          <!-- Injected by games.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME 2: BALLOON POP FRENZY -->
+    <section class="mt-4">
+      <div class="glass-panel text-center" style="padding: 1.5rem; margin-bottom: 2rem;">
+        <h2>🎈 Game 2: Balloon Pop Frenzy</h2>
+        <p class="hero-subtitle">Pop as many balloons as you can in 30 seconds! Watch out for Golden Stars ⭐ and Gift Bombs 🎁!</p>
+
+        <div class="game-canvas-wrapper">
+          <canvas id="balloon-game-canvas"></canvas>
+
+          <!-- HUD -->
+          <div class="game-hud">
+            <div class="hud-pill">🎯 Score: <span id="balloon-score">0</span></div>
+            <div class="hud-pill" id="balloon-combo" style="color: #FFD166;"></div>
+            <div class="hud-pill">⏳ Time: <span id="balloon-time">30s</span></div>
+            <div class="hud-pill">🏆 Best: <span id="balloon-highscore">0</span></div>
+          </div>
+
+          <!-- Start Screen Overlay -->
+          <div id="balloon-start-screen" class="game-start-screen">
+            <div class="glass-panel text-center">
+              <h3>Ready to Pop?</h3>
+              <p>Click/tap balloons before they float away!</p>
+              <button id="start-balloon-btn" class="btn-primary mt-3">🚀 Start 30s Challenge</button>
+            </div>
+          </div>
+
+          <!-- Game Over Overlay -->
+          <div id="balloon-game-overlay" class="game-over-overlay hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME 3: WHEEL OF BIRTHDAY FORTUNE -->
+    <section class="mt-4">
+      <div class="glass-panel text-center" style="padding: 1.5rem; margin-bottom: 2rem;">
+        <h2>🎡 Game 3: Wheel of Birthday Fortune</h2>
+        <p class="hero-subtitle">Spin to win exclusive coupons and royal birthday privileges!</p>
+
+        <div class="wheel-section">
+          <div class="wheel-wrapper">
+            <div class="wheel-pointer"></div>
+            <canvas id="wheel-canvas"></canvas>
+          </div>
+          <button id="spin-wheel-btn" class="btn-primary">🎯 Spin the Wheel!</button>
+        </div>
+
+        <!-- Wheel Prize Modal -->
+        <div id="wheel-result-modal" class="modal-backdrop hidden"></div>
+      </div>
+    </section>
+
+    <!-- GAME 4: FORTUNE COOKIE & WISHING JAR -->
+    <section class="mt-4">
+      <div class="glass-panel text-center" style="padding: 1.5rem; margin-bottom: 2rem;">
+        <h2>🥠 Game 4: Birthday Fortunes & Wishing Jar</h2>
+        <p class="hero-subtitle">Crack open a lucky birthday cookie or draw a blessing from the magic jar!</p>
+
+        <div class="btn-group justify-center" style="gap: 2rem; margin-top: 1.5rem;">
+          <!-- Cookie -->
+          <div class="glass-panel" style="flex: 1; min-width: 260px;">
+            <h3>🥠 Fortune Cookie</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Click to crack open your fortune!</p>
+            <div class="interactive-cookie-box" id="crack-cookie-btn">
+              <span>🥠</span>
+            </div>
+            <div id="fortune-text-display"></div>
+          </div>
+
+          <!-- Jar -->
+          <div class="glass-panel" style="flex: 1; min-width: 260px; cursor: pointer;" id="wishing-jar-card">
+            <h3>🏺 Magic Wishing Jar</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Click the jar to draw a sweet blessing!</p>
+            <div class="interactive-cookie-box" style="background: #90E0EF;">
+              <span>✨</span>
+            </div>
+            <div id="jar-fortune-display"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME 5: EMOJI MATCH PUZZLE -->
+    <section class="mt-4">
+      <div class="glass-panel text-center" style="padding: 1.5rem; margin-bottom: 3rem;">
+        <h2>🧩 Game 5: Birthday Emoji Match</h2>
+        <p class="hero-subtitle">Flip cards and match all festive pairs in the fewest moves!</p>
+        <div id="emoji-match-container">
+          <!-- Injected by games.js -->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data/content.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/confetti.js"></script>
+  <script src="js/games.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

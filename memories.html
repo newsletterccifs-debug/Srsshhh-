@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Lane 📸 Moments & Milestones</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="theme-noir-gold">
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="brand-icon">⚜️</span>
+      <span>Shristii's Gala</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="memories.html" class="nav-link active">Memories</a></li>
+      <li><a href="arcade.html" class="nav-link">Arcade</a></li>
+      <li><a href="wishes.html" class="nav-link">Wishbook</a></li>
+      <li><a href="surprise.html" class="nav-link">Secret Vault</a></li>
+    </ul>
+
+    <div class="nav-controls">
+      <button class="control-btn" id="bgm-toggle-btn">🎵 Melody: OFF</button>
+      <button class="control-btn" id="sfx-toggle-btn">🔊 Sound: ON</button>
+      <select id="theme-select" class="theme-picker">
+        <option value="theme-noir-gold">⚜️ Noir & Champagne</option>
+        <option value="theme-velvet-wine">🍷 Velvet & Rose Gold</option>
+        <option value="theme-emerald-luxe">🌲 Emerald & Gold</option>
+        <option value="theme-ivory-champagne">🥂 Alabaster & Gold</option>
+      </select>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="hero-section">
+    <div class="hero-badge">📼 The Nostalgia Vault 📼</div>
+    <h1 class="hero-title">Memory Lane & Milestones</h1>
+    <p class="hero-subtitle">
+      A walk through the adventures, laughs, and golden moments of our favorite person, <span data-bind="name">Shristii 🐘</span>!
+    </p>
+
+    <!-- Retro Cassette Mixtape Player -->
+    <div class="cassette-section glass-panel">
+      <h3>🎶 The Birthday Mixtape</h3>
+      <p class="hero-subtitle" style="margin-bottom: 0.5rem;">Soundtrack to our greatest adventures & roadtrips</p>
+
+      <div class="cassette-body" id="cassette-deck">
+        <div class="cassette-label">
+          <span>📼 SIDE A: GREATEST HITS 100% AWESOME</span>
+        </div>
+        <div class="cassette-window">
+          <div class="tape-wheel"></div>
+          <div class="tape-wheel"></div>
+        </div>
+        <div class="cassette-label" style="font-size: 0.75rem;">
+          <span>HI-FI STEREO • CHERISHED MEMORIES</span>
+        </div>
+      </div>
+
+      <div class="tape-info" id="tape-track-info">
+        <strong>Celebration Anthems (Side A)</strong>
+        <span class="dedication-quote">"For dancing like nobody is watching"</span>
+      </div>
+
+      <div class="btn-group mt-3 justify-center">
+        <button id="play-tape-btn" class="btn-primary">▶ Play Mixtape</button>
+        <button id="next-track-btn" class="btn-secondary">⏭ Next Dedication</button>
+      </div>
+    </div>
+
+    <!-- Interactive Milestone Timeline -->
+    <h2 class="mt-4">📖 The Journey So Far</h2>
+    <div class="timeline-section" id="timeline-container">
+      <!-- Injected by main.js from config -->
+    </div>
+
+    <!-- Polaroid Photo Wall -->
+    <h2 class="mt-4">📸 Snapshot Scrapbook</h2>
+    <p class="hero-subtitle">Click any polaroid to zoom in & view memories!</p>
+    <div class="polaroid-grid" id="polaroid-gallery">
+      <!-- Injected by main.js from config -->
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data/content.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/confetti.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

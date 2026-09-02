@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Secret Birthday Vault 🎁 Unboxing & Surprises</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="theme-noir-gold">
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="brand-icon">⚜️</span>
+      <span>Shristii's Gala</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="memories.html" class="nav-link">Memories</a></li>
+      <li><a href="arcade.html" class="nav-link">Arcade</a></li>
+      <li><a href="wishes.html" class="nav-link">Wishbook</a></li>
+      <li><a href="surprise.html" class="nav-link active">Secret Vault</a></li>
+    </ul>
+
+    <div class="nav-controls">
+      <button class="control-btn" id="bgm-toggle-btn">🎵 Melody: OFF</button>
+      <button class="control-btn" id="sfx-toggle-btn">🔊 Sound: ON</button>
+      <select id="theme-select" class="theme-picker">
+        <option value="theme-noir-gold">⚜️ Noir & Champagne</option>
+        <option value="theme-velvet-wine">🍷 Velvet & Rose Gold</option>
+        <option value="theme-emerald-luxe">🌲 Emerald & Gold</option>
+        <option value="theme-ivory-champagne">🥂 Alabaster & Gold</option>
+      </select>
+    </div>
+  </nav>
+
+  <div class="surprise-stage" id="gift-box-stage">
+    <div class="hero-section" style="padding-bottom: 1rem;">
+      <div class="hero-badge">🎁 Top Secret Surprise 🎁</div>
+      <h1 class="hero-title">The Birthday Vault</h1>
+      <p class="hero-subtitle">
+        A special gift box locked just for <span data-bind="name">Shristii 🐘</span>! Click to unwrap the surprises inside.
+      </p>
+    </div>
+
+    <!-- 3D Interactive Gift Box -->
+    <div class="gift-box-3d" id="interactive-gift-box" title="Click to unwrap!">
+      <div class="gift-ribbon-vertical"></div>
+      <div class="gift-ribbon-horizontal"></div>
+      <div class="gift-bow">🎀</div>
+    </div>
+
+    <p id="unbox-instruction" style="font-weight: 700; color: var(--primary); font-size: 1.1rem; margin-top: 1rem;">
+      🎁 Step 1: Click the gift box to untie the golden ribbon!
+    </p>
+
+    <!-- UNBOXED SURPRISE REVEAL -->
+    <div id="unboxed-surprise-content" class="hidden mt-4">
+      
+      <!-- Heartfelt Letter -->
+      <div class="glass-panel text-center" style="margin-bottom: 2.5rem;">
+        <h2>💌 A Letter From All Of Us</h2>
+        <div class="diploma-card mt-3" style="text-align: left; max-width: 650px; margin-left: auto; margin-right: auto;">
+          <p id="surprise-letter-body" style="white-space: pre-line; line-height: 1.8; font-size: 1.05rem;"></p>
+        </div>
+      </div>
+
+      <!-- Birthday Coupon Booklet -->
+      <div class="glass-panel text-center" style="margin-bottom: 2.5rem;">
+        <h2>🎟️ Exclusive Birthday Privilege Passes</h2>
+        <p class="hero-subtitle">Redeem these official passes anytime this year!</p>
+        
+        <div id="coupon-grid" style="max-width: 700px; margin: 1.5rem auto 0 auto;">
+          <!-- Injected by main.js from config -->
+        </div>
+      </div>
+
+      <!-- Grand Celebration Fireworks Trigger -->
+      <div class="glass-panel text-center">
+        <h3>🎊 Need More Celebration?</h3>
+        <p class="hero-subtitle" style="margin-bottom: 1rem;">Launch unlimited celebration fireworks and confetti blasts!</p>
+        <button class="btn-primary" onclick="if(window.Confetti) { window.Confetti.cannons(150); window.Confetti.blast(100); } if(window.Sound) { window.Sound.partyHorn(); }">
+          🎆 Launch Grand Fireworks Finale
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data/content.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/confetti.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
