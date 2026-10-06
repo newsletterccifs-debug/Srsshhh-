@@ -138,7 +138,7 @@ function renderLockOverlay(targetDate) {
           <input 
             type="password" 
             id="vip-passcode-input" 
-            placeholder="Enter VIP Key (e.g. shristii1101)" 
+            placeholder="Enter VIP Passcode" 
             required 
             style="width: 100%; padding: 0.8rem 1rem; border-radius: 6px; border: 1px solid var(--card-border); background: rgba(0,0,0,0.6); color: #FFF; font-size: 1rem; text-align: center; letter-spacing: 2px; margin-bottom: 1rem;" 
           />
